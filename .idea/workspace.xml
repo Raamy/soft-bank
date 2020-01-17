@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ba86baf3-bc5a-474e-a144-cec4d4f0e835" name="Default Changelist" comment="#Mise en place des fichiers USER, TRANSFER, ACCOUNT" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>users</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1WTKZPuQhFRo23o8II8bgZfcS9Q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba86baf3-bc5a-474e-a144-cec4d4f0e835" name="Default Changelist" comment="" />
+      <created>1579034372488</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579034372488</updated>
+      <workItem from="1579034373582" duration="293000" />
+      <workItem from="1579076426882" duration="2645000" />
+      <workItem from="1579119759613" duration="1772000" />
+      <workItem from="1579165922026" duration="202000" />
+      <workItem from="1579168200464" duration="5385000" />
+      <workItem from="1579181399912" duration="2520000" />
+      <workItem from="1579190533252" duration="9553000" />
+      <workItem from="1579246099799" duration="8338000" />
+      <workItem from="1579270374650" duration="1537000" />
+      <workItem from="1579278943986" duration="1092000" />
+      <workItem from="1579293165084" duration="1473000" />
+    </task>
+    <task id="LOCAL-00001" summary="#Mise en place des fichiers USER, TRANSFER, ACCOUNT">
+      <created>1579076539629</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579076539629</updated>
+    </task>
+    <task id="LOCAL-00002" summary="#Ajout du traitement date, trie par rôles, correction insert into">
+      <created>1579119822108</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579119822108</updated>
+    </task>
+    <task id="LOCAL-00003" summary="#Mise en place de nouveaux services">
+      <created>1579158330284</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579158330284</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#Mise en place de nouveaux services">
+      <created>1579158447404</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579158447404</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="#Mise en place des fichiers USER, TRANSFER, ACCOUNT" />
+    <MESSAGE value="#Ajout du traitement date, trie par rôles, correction insert into" />
+    <MESSAGE value="#Mise en place de nouveaux services" />
+    <option name="LAST_COMMIT_MESSAGE" value="#Mise en place de nouveaux services" />
+  </component>
+</project>
