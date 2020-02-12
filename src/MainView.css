@@ -1,0 +1,19 @@
+.changeFont {
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.darkTheme {
+    color: rgb(185, 203, 217);
+    background-color: rgb(29, 31, 32);
+}
+
+.darkBackground {
+    background-color: rgb(29, 31, 32);
+    height: 100vh;
+}
+
+.dark {
+    color: rgb(185, 203, 217);
+    background-color: rgb(29, 31, 32);
+}

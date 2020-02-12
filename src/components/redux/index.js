@@ -1,0 +1,1 @@
+export { setDark, setLight } from './themes/themeActions'
