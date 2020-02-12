@@ -40,6 +40,19 @@ class AllAccounts extends Component {
         this.setState({deleted: null})
     };
 
+    // ----- CSS si le compte est négatif -----
+    isOverdraft = (key) => {
+        if(this.state.accounts[key].balance <= this.state.accounts[key].overdraft_value){
+            return 'bg-danger'
+        }
+    };
+    isNegative = (key) => {
+        if(this.state.accounts[key].balance < 0 && this.state.accounts[key].balance > this.state.accounts[key].overdraft_value){
+            return 'text-danger font-weight-bold'
+        }
+    };
+   // ------------------------------------------
+
     render() {
         // Bouton pour supprimer le compte
         const deleteThisAccount = (key, id) => {
@@ -60,11 +73,20 @@ class AllAccounts extends Component {
                 )
             }
         };
+        const contactBanker = (key) => {
+            if(this.state.accounts[key].balance < this.state.accounts[key].overdraft_value){
+                return(
+                    <p className="lead">
+                        Veuillez contacter votre banquier référent.
+                    </p>
+                )
+            }
+        };
         // Rendu de liste des comptes
         const accounts = Object.keys(this.state.accounts).map((key) => {
             return (
                 <div className={"pt-4"}>
-                    <div style={{borderRadius: '0rem'}} key={key} className="card">
+                    <div style={{borderRadius: '0rem'}} key={key} className={`card ${this.isOverdraft(key)}`}>
                         <div className={`card-body ${this.props.theme}`}>
                             <div className="row">
                                 <div className="col">
@@ -72,9 +94,11 @@ class AllAccounts extends Component {
                                     <div className={'text-justify'}>
                                         <p style={{fontSize: '22px'}}>{this.state.accounts[key].name} <i
                                             className="fas fa-money-check"/></p>
-                                        <p className="lead">
-                                            Solde : {this.state.accounts[key].balance} €
+                                        <p>
+                                            <span className="lead">Solde </span> : <span className={this.isNegative(key)}>{this.state.accounts[key].balance}</span> €
                                         </p>
+                                        <p className="lead">Limite du solde négatif : {this.state.accounts[key].overdraft_value}</p>
+                                        {contactBanker(key)}
                                     </div>
                                     <div className="col">
                                         <a className="btn btn-success float-right"
@@ -109,6 +133,7 @@ class AllAccounts extends Component {
                 {deletedAccount()}
                 <br/>
                 {accounts}
+                <br/>
             </div>
         );
     }

@@ -131,11 +131,11 @@ class Account extends Component {
                     <p className="lead">
                         Limite du solde négatif : {this.state.account.overdraft_value}
                     </p>
-                    <button data-aos="fade-up" type="button" className="btn btn-outline-success">Effectuer un transfert
-                    </button>
-                    <button data-aos="fade-up" type="button" className="btn btn-outline-primary ml-4">Réaliser un
-                        virement
-                    </button>
+                    <a role="button" href="/virements" className="btn btn-success">Réaliser un
+                        virement</a>
+
+                    <a role="button" href="/transfert" className="btn btn-outline-success">Effectuer un transfert
+                    </a>
                 </div>
                 <br/>
                 <hr/>

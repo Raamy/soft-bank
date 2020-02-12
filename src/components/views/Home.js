@@ -25,11 +25,11 @@ class Home extends Component {
                           <br/>
                           <br/>
                           <p className="lead">Effectuer un virement</p>
-                          <button type="button" className="btn btn-success">Virement</button>
+                          <a role="button" href="/virements" className="btn btn-success">Virement</a>
                           <br/>
                           <br/>
                           <p className="lead">Effectuer un transfert</p>
-                          <button type="button" className="btn btn-success">Transfert</button>
+                          <a className="btn btn-success" href="/transfert" role="button">Transfert</a>
                       </div>
                   )
               }
