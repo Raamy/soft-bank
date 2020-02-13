@@ -20,26 +20,30 @@ import AllAccounts from "./components/views/AllAccounts";
 import Account from "./components/views/Account";
 import TransferToUser from "./components/views/transferToUser";
 import TransferToAccount from "./components/views/transferToAccount";
+import History from "./components/views/History";
 
 class MainView extends Component {
 
-    // Récupère les données de l'utilisateur s'il est connecté
+    // Récupère les données de l'utilisateur + ses comptes s'il est bien connecté
     componentDidMount() {
         if (sessionStorage.getItem('token') != null) {
             this.props.userDataApi();
-            console.log(this.props)
         }
     }
 
     render() {
         return (
-            <div className={`changeFont ${this.props.theme}Background`}>
-                <Navbar/>
+            <div className={` ${this.props.theme}Background`}>
+                {/* Navbar */}
+                <div className="brandFont">
+                    <Navbar/>
+                </div>
                 <div className={'route'}>
+                    {/* Routes constituées de vues ./components/views/ */}
                     <Router>
                         <Switch>
                             <div className={`${this.props.theme}Theme`}>
-                                <div className="container">
+                                <div className="container changeFont">
                                     <Route exact path='/' component={Home}/>
                                     <Route exact path='/accueil' component={Home}/>
                                     <Route exact path='/profil' component={Profile}/>
@@ -47,6 +51,7 @@ class MainView extends Component {
                                     <Route exact path='/compte/:id' component={Account}/>
                                     <Route exact path='/virements' component={TransferToUser} />
                                     <Route exact path='/transfert' component={TransferToAccount} />
+                                    <Route exact path='/historique/:id' component={History} />
                                 </div>
                             </div>
                         </Switch>

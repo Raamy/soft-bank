@@ -98,11 +98,13 @@ class TransferToAccount extends Component {
         };
         // Permet de créer les listes des comptes dans les balises select
         const accounts = Object.keys(this.state.accounts).map((key) => {
-            return (
-                <option value={this.state.accounts[key].id} key={key}>
-                    {this.state.accounts[key].name}
-                </option>
-            )
+            if(this.state.accounts[key].balance > 0){
+                return (
+                    <option value={this.state.accounts[key].id}>
+                        {this.state.accounts[key].name}
+                    </option>
+                )
+            }
         });
         // A ignorer = CSS
         const text = () => {

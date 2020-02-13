@@ -60,7 +60,7 @@ export const getAccount = (id, dispatch) => {
         .then(res => res.json())
         .then(
             (result) => {
-                console.log(result);
+                // console.log(result);
                 dispatch(receiveAccount(result))
             },
             // Note: it's important to handle errors here

@@ -1,11 +1,16 @@
 import React, {Component} from "react";
 import axios from "axios";
+
+// Connexion à react-redux
 import {connect} from 'react-redux'
-import {userDataApi} from "../redux/security/securityActions";
 
 // Composant pour que le banquier édite le compte
 import EditAccount from "../html/EditAccount";
 
+// 5 derniers transferts de ce compte
+import LastTransfer from "../html/LastTransfer";
+
+// ----- Page rendu de compte ------
 class Account extends Component {
 
     constructor(props) {
@@ -19,6 +24,7 @@ class Account extends Component {
         };
     }
 
+    // Récupération des détails d'un compte spécifique
     getAccountDetails() {
         fetch(`http://localhost:6565/account/${this.props.location.pathname.replace('/compte/id=', '')}`)
             .then(res => res.json())
@@ -31,15 +37,13 @@ class Account extends Component {
                         balance: result[0].balance
                     })
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     console.log(error);
                 }
             )
     }
 
+    // Des que le composant Mount
     componentDidMount() {
         this.getAccountDetails();
     }
@@ -48,6 +52,7 @@ class Account extends Component {
         this.setState({depositValue: event.target.value})
     };
 
+    // A ignorer : CSS
     formDeposit() {
         if (this.state.depositValue !== '') {
             return 'success'
@@ -57,7 +62,7 @@ class Account extends Component {
     }
 
     // Effectuer un dépôt sur le compte
-    makeDeposit =  event => {
+    makeDeposit = event => {
         event.preventDefault();
         var balance = Number(this.state.balance);
         var deposit = Number(this.state.depositValue);
@@ -116,14 +121,14 @@ class Account extends Component {
         };
         // A ignorer = CSS
         const text = () => {
-            if(this.props.theme !== null && this.props.theme === 'dark'){
+            if (this.props.theme !== null && this.props.theme === 'dark') {
                 return 'text-white'
             }
         };
         return (
             <div className={'container'}>
                 <h1 data-aos="fade-up" className={'pt-4'}>Compte : {this.state.account.name}</h1>
-                {/*<hr/>*/}
+                {/* Informations */}
                 <div className={'text-justify'}>
                     <p className="lead">
                         Solde actuel : {Number(this.state.balance)} €
@@ -131,18 +136,21 @@ class Account extends Component {
                     <p className="lead">
                         Limite du solde négatif : {this.state.account.overdraft_value}
                     </p>
-                    <a role="button" href="/virements" className="btn btn-success">Réaliser un
+                    <a role="button" href="/virements" className="btn btn-outline-success">Réaliser un
                         virement</a>
-
-                    <a role="button" href="/transfert" className="btn btn-outline-success">Effectuer un transfert
+                    <a role="button" href="/transfert" className="btn btn-outline-primary ml-3">Effectuer un transfert
                     </a>
+                    <a className="btn btn-outline-info ml-3" href={`/historique/${this.state.account.id}`} role="button">Historique de ce compte</a>
                 </div>
                 <br/>
                 <hr/>
+                {/* Partie Editer le compte : Banquier */}
                 {editAccount()}
                 <br/>
-                <hr />
+                <hr/>
+                {/* Dépôt d'argent */}
                 <h3 className={"pt-2"}>Déposer de l'argent sur ce compte</h3>
+                {/* Alerte qui se déclenche une fois le dépôt effectué */}
                 {depositMade()}
                 <div className="form-group">
                     <input type="number" className={`form-control ${text()} bg-${this.props.theme}`} id="inputDeposit"
@@ -155,14 +163,16 @@ class Account extends Component {
                             onClick={this.makeDeposit}>Déposer
                     </button>
                 </div>
-                <hr />
-                <h3 className={'pt-2'}>Derniers transferts de ce compte</h3>
+                <hr/>
+                {/* 5 derniers transfert concernant ce compte */}
+                <LastTransfer accountId={this.state.account.id}/>
             </div>
         );
     }
 
 }
 
+// Récupération des informations de l'utilisateur
 const mapStateToProps = state => {
     return {
         theme: state.themes.theme,
@@ -174,13 +184,7 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        userDataApi: () => dispatch(userDataApi(dispatch))
-    }
-};
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(Account)

@@ -45,6 +45,9 @@ class AllAccounts extends Component {
         if(this.state.accounts[key].balance <= this.state.accounts[key].overdraft_value){
             return 'bg-danger'
         }
+        else {
+            return 'border-success'
+        }
     };
     isNegative = (key) => {
         if(this.state.accounts[key].balance < 0 && this.state.accounts[key].balance > this.state.accounts[key].overdraft_value){
@@ -90,7 +93,7 @@ class AllAccounts extends Component {
                         <div className={`card-body ${this.props.theme}`}>
                             <div className="row">
                                 <div className="col">
-                                    <div className="float-right">{deleteThisAccount(key, this.state.accounts[key].id)}</div>
+                                    <div className="float-right mr-3">{deleteThisAccount(key, this.state.accounts[key].id)}</div>
                                     <div className={'text-justify'}>
                                         <p style={{fontSize: '22px'}}>{this.state.accounts[key].name} <i
                                             className="fas fa-money-check"/></p>
@@ -140,6 +143,7 @@ class AllAccounts extends Component {
 
 }
 
+// Récupération des informations de l'utilisateur
 const mapStateToProps = state => {
     return {
         theme: state.themes.theme,

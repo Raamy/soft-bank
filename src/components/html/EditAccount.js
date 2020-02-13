@@ -9,7 +9,7 @@ class EditAccount extends Component {
         this.state = {
             name: '',
             balance: '',
-            overdraft_value: ''
+            overdraft_value: '',
         }
     }
 
@@ -22,7 +22,7 @@ class EditAccount extends Component {
 
     handleEditAccount = (event) => {
         event.preventDefault();
-        this.props.editAccount(this.props.accountId, this.props.id, this.state)
+        this.props.editAccount(this.props.accountId, this.props.id, this.state);
         window.location.reload();
     };
 
@@ -54,7 +54,7 @@ class EditAccount extends Component {
                     <div className="form-group">
                         <input type="number" className={`form-control mt-3 ${text()} bg-${this.props.theme}`}
                                onKeyUp={(event) => this.handleKeyUp(event, "balance")}
-                               value={this.state.depositValue} placeholder="Montant du dépôt (€)"/>
+                               value={this.state.depositValue} placeholder="Montant du solde (€)"/>
                     </div>
                     <div className="form-group">
                         <input type="number" className={`form-control mt-3 ${text()} bg-${this.props.theme}`}

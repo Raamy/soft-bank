@@ -32,16 +32,16 @@ class Navbar extends Component {
                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                 <a className="nav-link" href="/">Accueil</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item active">
                                 <a className="nav-link" href="/comptes">Mes comptes</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item active">
                                 <a className="nav-link" href="/virements">Virements</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item active">
                                 <a className="nav-link" href="/transfert">Transfert</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item active">
                                 <a className="nav-link" href="/profil">Mon profil</a>
                             </li>
                         </ul>
@@ -68,7 +68,7 @@ class Navbar extends Component {
         };
         return (
             <div className={'setShadow'}>
-                <nav className={`navbar navbar-expand-lg navbar-${this.props.theme} bg-${this.props.theme}`}>
+                <nav className={`navbar navbar-expand-lg brandFront navbar-${this.props.theme} bg-${this.props.theme}`}>
                     <a className="navbar-brand" href="/">SoftBank</a>
                     {button()}
                     {userHead()}

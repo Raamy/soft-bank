@@ -9,7 +9,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            role: false
+            role: ''
         };
     }
 
@@ -21,16 +21,6 @@ class Login extends Component {
     getPassword = event => {
         event.preventDefault();
         this.setState({password: event.target.value})
-    };
-
-    getRole = event => {
-        event.preventDefault();
-        if(this.state.role === false){
-            this.setState({role: true})
-        }
-        else {
-            this.setState({role: false})
-        }
     };
 
     handleLogin = event => {
@@ -61,10 +51,6 @@ class Login extends Component {
                         <input type="password" required className={`form-control ${text()} bg-${this.props.theme}`}
                                onChange={this.getPassword}
                                value={this.state.password} id="inputPassword" placeholder="Mot de passe"/>
-                    </div>
-                    <div className="form-check form-check-inline py-1">
-                        <input onChange={this.getRole} className="form-check-input" type="checkbox" id="inlineCheckbox1"/>
-                            <label className="form-check-label" htmlFor="inlineCheckbox1">Se connecter en Banquier</label>
                     </div>
                     <div className="text-center pt-3">
                         <button type='submit'

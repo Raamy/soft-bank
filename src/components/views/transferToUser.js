@@ -80,6 +80,7 @@ class TransferToUser extends Component {
         axios.put(`http://localhost:6565/account/edit/deposit/${this.state.chosenAccount}/${this.props.id}`, {
             balance: -this.state.amount
         });
+        axios.post(`http://localhost:6565/transfer/${this.state.chosenAccount}/${this.state.chosenUser}/${this.state.amount}`);
         this.setState({transfered: true})
     };
 
@@ -95,15 +96,17 @@ class TransferToUser extends Component {
                 return 'text-white'
             }
         };
-        //
+        // Rendu de la liste des comptes de l'utilisateur connecté
         const accounts = Object.keys(this.state.accounts).map((key) => {
-            return (
-                <option value={this.state.accounts[key].id} key={key}>
-                    {this.state.accounts[key].name}
-                </option>
-            )
+            if(this.state.accounts[key].balance > 0){
+                return (
+                    <option value={this.state.accounts[key].id}>
+                        {this.state.accounts[key].name}
+                    </option>
+                )
+            }
         });
-        //
+        // Rendu de la liste des utilisateurs (autre que celui connecté ...) dans la balise select
         const users = Object.keys(this.state.users).map((key) => {
             return(
                 <option value={this.state.users[key].id}>

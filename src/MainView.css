@@ -1,6 +1,6 @@
 .changeFont {
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
-    font-family: 'Nanum Gothic', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+    font-family: 'Nunito', sans-serif;
 }
 
 .darkTheme {
@@ -16,4 +16,8 @@
 .dark {
     color: rgb(185, 203, 217);
     background-color: rgb(29, 31, 32);
+}
+.brandFont {
+@import url('https://fonts.googleapis.com/css?family=Ramabhadra&display=swap');
+    font-family: 'Ramabhadra', sans-serif;
 }

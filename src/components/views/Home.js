@@ -18,9 +18,9 @@ class Home extends Component {
                       <div>
                           <h1 className={'text-center py-4'}>Vous êtes connecté</h1>
                           <br/>
-                          <h3>Que voulez-vous faire?</h3>
+                          <h3>Que voulez-vous faire {this.props.name} ?</h3>
                           <br/>
-                          <p className="lead">Voir l'état de mes {this.props.accounts.length} comptes</p>
+                          <p className="lead">Voir l'état de mes {this.props.accounts.length > 1 ? this.props.accounts.length : null} comptes</p>
                           <a className="btn btn-success" href="/comptes" role="button">Synthèse de mes comptes</a>
                           <br/>
                           <br/>
