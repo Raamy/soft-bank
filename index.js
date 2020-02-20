@@ -25,9 +25,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/transfer', transferRouter);
 app.use('/account', accountRouter);
 app.use('/user', userRouter);
+app.use('/login', securityRouter);
 
 app.listen(6565, ()=> {
-	console.log('Listening on port 6565'); // Avant il ouvre le port 
+	console.log('\nListening on http://localhost:6565'); // Avant il ouvre le port
 }); //ouvrir un port au serveur
 
 

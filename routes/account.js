@@ -67,13 +67,13 @@ router_account.get('/:userid/:accountid', (request,response) =>{
 
 // Post data account - account/add
 router_account.post('/add', (request, response) => {
-	const { name, userid, balance, overdraft } = request.body;
-	pool.query('INSERT INTO account (name, userid, balance, overdraft) VALUES ($1, $2, $3, $4)', [name, userid, balance, overdraft], error =>{ // toujours retourner un tableau
+	const { name, userid, balance, overdraft_value } = request.body;
+	pool.query('INSERT INTO account (name, userid, balance, overdraft_value, overdraft) VALUES ($1, $2, $3, $4, $5)', [name, userid, balance, overdraft_value, false], error =>{ // toujours retourner un tableau
 		if (error){
 			response.status(400).json({status:'error', message: 'Remplir tous les champs'});
 		}
 		else{
-			response.status(201).json({status:'success', message:'User ajouté'});
+			response.status(201).json({status:'success', message:'Compte ajouté'});
 		}
 	});
 });
@@ -83,8 +83,8 @@ router_account.post('/add', (request, response) => {
 router_account.put('/edit/:accountid/:user_id', (request,response) =>{
 	const user_id = parseInt(request.params.user_id);
 	const accountid = parseInt(request.params.accountid);
-	const { name, userid, balance, overdraft } = request.body;
-	pool.query('UPDATE account SET name=$1, balance=$2, overdraft=$3 WHERE id=$4 AND userid=$5', [name, balance, overdraft, accountid, user_id], error=>{
+	const { name, balance, overdraft_value } = request.body;
+	pool.query('UPDATE account SET name=$1, balance=$2, overdraft_value=$3 WHERE id=$4 AND userid=$5', [name, balance, overdraft_value, accountid, user_id], error=>{
 		if(error){
 			response.status(400).json({status:"error", message: 'All fields required'});
 		}
@@ -112,7 +112,7 @@ router_account.put('/edit/deposit/:accountid/:user_id', (request,response) =>{
 //   PUT - account/id : Banquier
 router_account.put('/edit/:accountid', (request,response) =>{
 	const accountid = parseInt(request.params.accountid);
-	const { name, userid, balance, overdraft } = request.body;
+	const { name, balance, overdraft } = request.body;
 	pool.query('UPDATE account SET name=$1, balance=$2, overdraft=$3 where id=$4', [name, balance, overdraft, accountid], error=>{
 		if(error){
 			response.status(400).json({status:"error", message: 'All fields required'});

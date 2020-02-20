@@ -106,11 +106,11 @@ transfer_account.delete('/delete/:transferid', (request, response)=>{
 //  PUT - transfer/idcompte/idcompte2/transfer_value           - Modification de la balance du receveur et du compte envoyeur après transaction.
 transfer_account.put('/:id_compte1/:id_compte2/:transfer_value', (request, response) => {
     const id_sender = parseInt(request.params.id_compte1);
-    const id_recever = parseInt(request.params.id_compte2);
+    const id_receiver = parseInt(request.params.id_compte2);
     const TV = parseInt(request.params.transfer_value);
-    const { sender, receiver, transfer_value, transfer_date } = request.body;
 
-    pool.query('UPDATE account SET balance=balance+$1 WHERE id=$2', [TV, id_sender], error=>{
+    pool.query('UPDATE account SET balance=balance+$1 WHERE id=$2;' +
+        'UPDATE account SET balance=balance-$1 WHERE id=$3', [TV, id_sender, id_receiver], error=>{
         if(error){
             response.status(400).json({status:"error", message: 'Update sender failed'});
         }
@@ -119,14 +119,14 @@ transfer_account.put('/:id_compte1/:id_compte2/:transfer_value', (request, respo
         }
     });
 
-    pool.query('UPDATE account SET balance=balance-$1 WHERE id=$2', [TV, id_recever], error=>{
-        if(error){
-            response.status(400).json({status:"error", message: 'Update receiver failed'});
-        }
-        else{
-            response.status(201).json({status:'success', message:'Success : Account Modified'});
-        }
-    });
+    // pool.query('UPDATE account SET balance=balance-$1 WHERE id=$2', [TV, id_receiver], error=>{
+    //     if(error){
+    //         response.status(400).json({status:"error", message: 'Update receiver failed'});
+    //     }
+    //     else{
+    //         response.status(201).json({status:'success', message:'Success : Account Modified'});
+    //     }
+    // });
 
 });
 
